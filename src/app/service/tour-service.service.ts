@@ -15,15 +15,15 @@ export class TourServiceService {
   tour : Tour = new Tour(0,"",0,"")
 
   create (tour : Tour) {
-    let check = true;
-    for (let i = 0; i < this.tours.length; i++) {
-      if (this.tours[i].id === tour.id){
-        this.tours[i] = tour
-        check = false
-      }
-    } if (check) {
+    // let check = true;
+    // for (let i = 0; i < this.tours.length; i++) {
+    //   if (this.tours[i].id === tour.id){
+    //     this.tours[i] = tour
+    //     check = false
+    //   }
+    // } if (check) {
       this.tours.push(new Tour(tour.id,tour.name,tour.price,tour.description))
-    }
+    // }
   }
 
   delete (id : number) {
@@ -34,12 +34,13 @@ export class TourServiceService {
     }
   }
 
-  // edit (tour : Tour) {
-  //   for (let i = 0; i < this.tours.length; i++) {
-  //     if (this.tours[i].id === tour.id) {
-  //       this.tours[i] = tour
-  //     }
-  //   }
-  // }
+  edit (tour : Tour) {
+    for (let i = 0; i < this.tours.length; i++) {
+      if (this.tours[i].id === tour.id) {
+        this.tours[i] = tour
+      }
+    }
+  }
+
   constructor() { }
 }

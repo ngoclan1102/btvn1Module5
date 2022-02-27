@@ -20,6 +20,7 @@ export class TuorComponent implements OnInit {
 
   create () {
     this.tourService.create(this.tour)
+this.deleteData()
   }
 
   delete (id : number) {
@@ -30,7 +31,12 @@ export class TuorComponent implements OnInit {
     this.tour = new Tour(tour.id,tour.name,tour.price,tour.description)
   }
 
+  edit () {
+    this.tourService.edit(this.tour);
+    this.deleteData()
+  }
 
-
-
+  deleteData () {
+    this.tour = new Tour(0,"",0,"");
+  }
 }
